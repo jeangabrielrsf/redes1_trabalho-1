@@ -17,7 +17,7 @@ class LoginWindow(BoxLayout):
         
         # Title
         title = Label(
-            text='Email Client Login',
+            text='Client Login',
             font_size='20sp',
             size_hint_y=None,
             height='40dp'
@@ -35,7 +35,7 @@ class LoginWindow(BoxLayout):
         
         # Password field
         self.password_input = TextInput(
-            hint_text='Password',
+            hint_text='Senha',
             password=True,
             multiline=False,
             size_hint_y=None,
@@ -54,7 +54,7 @@ class LoginWindow(BoxLayout):
         
         # Port field
         self.port_input = TextInput(
-            hint_text='Port',
+            hint_text='Porta',
             multiline=False,
             size_hint_y=None,
             height='40dp'
@@ -69,7 +69,7 @@ class LoginWindow(BoxLayout):
             spacing=10
         )
         self.login_button = Button(text='Login')
-        self.register_button = Button(text='Register')
+        self.register_button = Button(text='Criar Usuário')
         buttons.add_widget(self.login_button)
         buttons.add_widget(self.register_button)
         self.add_widget(buttons)
@@ -92,7 +92,7 @@ class EmailWindow(BoxLayout):
         
         # Welcome message
         welcome = Label(
-            text=f'Welcome, {username}!',
+            text=f'Olá, {username}!',
             font_size='20sp',
             size_hint_y=None,
             height='40dp'
@@ -116,7 +116,7 @@ class EmailWindow(BoxLayout):
         
         # Compose area
         compose_label = Label(
-            text='Compose New Email',
+            text='Escreva uma nova mensagem',
             font_size='16sp',
             size_hint_y=None,
             height='30dp'
@@ -135,8 +135,8 @@ class EmailWindow(BoxLayout):
             height='40dp',
             spacing=10
         )
-        self.send_button = Button(text='Send Email')
-        self.refresh_button = Button(text='Refresh')
+        self.send_button = Button(text='Enviar Mensagem')
+        self.refresh_button = Button(text='Atualizar')
         buttons.add_widget(self.send_button)
         buttons.add_widget(self.refresh_button)
         self.add_widget(buttons)
@@ -145,8 +145,8 @@ class EmailWindow(BoxLayout):
         """Updates the email list in the interface."""
         email_text = ''
         for email in emails:
-            email_text += f'From: {email.sender}\n'
-            email_text += f'Message: {email.message}\n'
+            email_text += f'De: {email.sender}\n'
+            email_text += f'Mensagem: {email.message}\n'
             email_text += '-' * 30 + '\n\n'
         
         self.email_list.text = email_text
@@ -196,7 +196,7 @@ class DialogWindow:
         )
         
         popup = Popup(
-            title='Send Email',
+            title='Enviar Mensagem',
             content=content,
             size_hint=(None, None),
             size=(300, 200),
@@ -212,7 +212,7 @@ class DialogWindow:
         def cancel(instance):
             popup.dismiss()
         
-        content.add_widget(Label(text='Enter recipient\'s nickname:'))
+        content.add_widget(Label(text='Entre com o nickname do destinatário:'))
         content.add_widget(text_input)
         
         buttons = BoxLayout(
@@ -223,7 +223,7 @@ class DialogWindow:
         )
         ok_button = Button(text='OK')
         ok_button.bind(on_release=set_recipient)
-        cancel_button = Button(text='Cancel')
+        cancel_button = Button(text='Cancelar')
         cancel_button.bind(on_release=cancel)
         buttons.add_widget(ok_button)
         buttons.add_widget(cancel_button)
