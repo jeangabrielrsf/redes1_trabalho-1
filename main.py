@@ -73,7 +73,7 @@ class EmailClientApp(App):
                 DialogWindow.show_error("Invalid credentials or connection error.")
                 
         except ValueError:
-            DialogWindow.show_error("Invalid port number")
+            DialogWindow.show_error("Número de porta inválida")
     
     def handle_register(self, instance):
         """Processes registration attempt."""
@@ -106,7 +106,7 @@ class EmailClientApp(App):
                 DialogWindow.show_error(message)
                 
         except ValueError:
-            DialogWindow.show_error("Invalid port number")
+            DialogWindow.show_error("Número de porta inválida")
     
     def show_email_interface(self):
         """Switches to the email interface."""
@@ -129,7 +129,7 @@ class EmailClientApp(App):
         message = email_window.get_compose_text()
         
         if not message.strip():
-            DialogWindow.show_error("Message cannot be empty")
+            DialogWindow.show_error("Mensagem não pode estar vazia!")
             return
         
         def send_email_callback(recipient):
@@ -143,10 +143,10 @@ class EmailClientApp(App):
                 })
                 
                 if response == 1:
-                    DialogWindow.show_success("Email sent successfully!")
+                    DialogWindow.show_success("Mensagem Enviada com Sucesso!")
                     email_window.clear_compose()
                 else:
-                    DialogWindow.show_error("Recipient not found")
+                    DialogWindow.show_error("Destinatário não encontrado!")
     
         # Chama get_recipient com o callback
         DialogWindow.get_recipient(send_email_callback)
