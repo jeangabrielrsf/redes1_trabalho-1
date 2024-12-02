@@ -5,10 +5,10 @@ Este programa consiste na criação de um protocolo de rede para comunicação e
 ## Integrantes do grupo
 
 -   Jean Gabriel
--   Alessando
+-   Alessando Barbosa
 -   Ian
--
--
+-   Diego Foguel
+-   Matheus Gomes
 
 ## Pré-Requisitos
 
